@@ -1,5 +1,9 @@
 #!/usr/bin/env ruby
 
+# frozen_string_literal: true
+
+require_relative '../modules/graphs'
+
 # Interative
 
 def depth_first_iterative(graph, source)
@@ -29,14 +33,7 @@ def depth_first_recursive(graph, source)
   end
 end
 
-graph = {
-  a: [:b, :c],
-  b: [:d],
-  c: [:e],
-  d: [:f],
-  e: [],
-  f: [],
-}
+graph = Graphs.directed_simple_graph
 
 puts 'depth-first iterative...'
 depth_first_iterative graph, :a

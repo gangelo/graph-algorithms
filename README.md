@@ -110,10 +110,56 @@ Must use a **_queue_**
 
 Traversal would proceed from a starting node (for example `(a)`, and traverse the nodes in the following order:
 `(a)` -* `(b)` -* `(c)`
-?
+`(b)` -* `(d)`
+`(c)` -* `(e)`
+`(d)` -* `(f)`
+`(e)` -* `(b)`
+`(b)` -* `(d)`
 
 NOTE: The order in which neighbor nodes are traversed (for example `(b)` and `(c)`) is insignificant.
 
 ### What's the difference?
 
 They are the same in that both algorithms traverse the _whole_ graph; however, the _order_ in which the graph is traversed differs.
+
+## Miscellaneous terms
+### Cycle
+A _cycle_ is any path through a set of nodes _**where I can end up where I once started.**_
+```
+# Notes (a), (b) and (c) are cyclic.
+(a) -* (c)
+ |    *
+ *  /
+(b)
+```
+### Cyclic
+When a graph is _cyclic_, we need to be concerned about _infinite loops_ when traversing the graph _**because there are one or more cycles present in the graph**_.
+
+### Acyclic
+When a graph is _acyclic_, we DO NOT need to be concerned about _infinite loops_ when traversing the graph _**because there are NO cycles present in the graph**_.
+
+## Calculating complexity - Big O
+### Using _multiple_ variables
+n = number of **nodes**.
+e = number of **edges**.
+
+Time: O(e)
+Space: O(n)
+
+### Using a _single_ variable
+
+n = number of **nodes**.
+n2 = number of **edges**.
+Where the "squared" number = the number of edges between nodes.
+
+#### Example
+```
+# Where *-* = 2 edges in each direction (i.e. <-, ->)
+(a) *-* (c)
+ *      *
+ |    /
+ *  *
+(b)
+```
+Time: O(n2)
+Space: O(n)

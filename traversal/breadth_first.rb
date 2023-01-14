@@ -1,7 +1,9 @@
 #!/usr/bin/env ruby
 
+# frozen_string_literal: true
+
 require 'set'
-require 'pry-byebug'
+require_relative '../modules/graphs'
 
 # Interative
 
@@ -34,14 +36,7 @@ def breadth_first_recursive(graph, node, visited = Set.new)
   visited
 end
 
-graph = {
-  a: [:b, :c],
-  b: [:d],
-  c: [:e],
-  d: [:f],
-  e: [],
-  f: [],
-}
+graph = Graphs.directed_simple_graph
 
 puts 'breadth-first iterative...'
 breadth_first_iterative graph, :a
